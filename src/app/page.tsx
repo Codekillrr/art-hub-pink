@@ -1,103 +1,181 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ChevronRight } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArtworkCard } from "@/components/artwork-card";
+import { ArtistSpotlight } from "@/components/artist-spotlight";
+import { AnimatedBackground } from "@/components/animated-background";
+import { FeaturedCollection } from "@/components/featured-collection";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="relative min-h-screen bg-black">
+      <AnimatedBackground />
+      <div className="absolute inset-0 bg-gradient-to-b from-pink-950/30 via-transparent to-pink-950/20 pointer-events-none z-0" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <section className="relative flex justify-center pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+        <div className="container  px-4 md:px-6">
+          <div className="flex flex-col items-center text-center space-y-4">
+            <div className="space-y-2">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-pink-400 to-pink-300 drop-shadow-[0_0_15px_rgba(236,72,153,0.3)] leading-tight py-2">
+                Digital Art Reimagined
+              </h1>
+              <p className="max-w-[700px] text-gray-300 md:text-xl/relaxed max-md:text-balance lg:text-base/relaxed xl:text-xl/relaxed">
+                Explore the intersection of creativity and technology through
+                our curated collection of digital masterpieces
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 min-[400px]:gap-6">
+              <Link href="/gallery">
+                <Button className="bg-pink-600 hover:bg-pink-700 text-white">
+                  Explore Gallery
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/artists">
+                <Button
+                  variant="outline"
+                  className="border-pink-500 text-pink-500 hover:bg-pink-950"
+                >
+                  Meet Our Artists
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        {/* Floating Elements */}
+        <div className="absolute top-1/4 left-[5%] w-24 h-24 rounded-full bg-pink-500/30 blur-xl animate-float-slow"></div>
+        <div className="absolute bottom-1/4 right-[10%] w-32 h-32 rounded-full bg-pink-600/20 blur-xl animate-float-medium"></div>
+        <div className="absolute top-1/3 right-[15%] w-16 h-16 rounded-full bg-pink-400/25 blur-xl animate-float-fast"></div>
+        <div className="absolute bottom-1/3 left-[15%] w-20 h-20 rounded-full bg-pink-300/20 blur-xl animate-float-medium"></div>
+      </section>
+
+      {/* Featured Artworks */}
+      <section className="py-12 flex justify-center md:py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-pink-950/30 to-transparent pointer-events-none"></div>
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+                Featured <span className="text-pink-500">Artworks</span>
+              </h2>
+              <p className="text-gray-400 md:text-xl">
+                Discover trending digital masterpieces
+              </p>
+            </div>
+            <Link
+              href="/gallery"
+              className="flex items-center gap-2 text-pink-500 hover:text-pink-400 transition-colors"
+            >
+              View all artworks
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <ArtworkCard
+              title="Neon Dreams"
+              artist="Pixel Queen"
+              imageSrc="/vercel.svg?height=400&width=400"
+              likes={342}
+              href="/artwork/neon-dreams"
+            />
+            <ArtworkCard
+              title="Digital Dystopia"
+              artist="CyberArtist"
+              imageSrc="/vercel.svg?height=400&width=400"
+              likes={289}
+              href="/artwork/digital-dystopia"
+            />
+            <ArtworkCard
+              title="Ethereal Fragments"
+              artist="VirtualVisions"
+              imageSrc="/vercel.svg?height=400&width=400"
+              likes={421}
+              href="/artwork/ethereal-fragments"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Artist Spotlight */}
+      <section className="py-12 flex justify-center md:py-24 bg-gradient-to-b from-black via-pink-950/40 to-black">
+        <div className="container px-4 md:px-6">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-white">
+            Artist <span className="text-pink-500">Spotlight</span>
+          </h2>
+
+          <ArtistSpotlight
+            name="Maya Digitalis"
+            bio="Creating at the intersection of traditional art and digital innovation. Maya's work explores themes of identity in the digital age."
+            avatarSrc="/vercel.svg?height=200&width=200"
+            artworks={[
+              "/vercel.svg?height=300&width=300",
+              "/vercel.svg?height=300&width=300",
+              "/vercel.svg?height=300&width=300",
+            ]}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+
+      {/* Featured Collection */}
+      <section className="py-12 flex justify-center md:py-24">
+        <div className="container px-4 md:px-6">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+              Featured <span className="text-pink-500">Collection</span>
+            </h2>
+            <p className="text-gray-400 md:text-xl max-w-[800px] mx-auto">
+              "Cyberpunk Visions" - A curated collection exploring neon-lit
+              dystopian futures and digital consciousness
+            </p>
+          </div>
+
+          <FeaturedCollection />
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="py-12 flex justify-center md:py-24 bg-pink-950/30 relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-pink-500/10 blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-pink-500/10 blur-3xl"></div>
+        <div className="container px-4 md:px-6">
+          <Card className="bg-black/60 border border-pink-500/20 backdrop-blur-sm">
+            <CardContent className="p-8 md:p-12">
+              <div className="grid gap-6 md:grid-cols-2 md:gap-12 items-center">
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold tracking-tighter sm:text-3xl text-white">
+                    Stay in the <span className="text-pink-500">Loop</span>
+                  </h3>
+                  <p className="text-gray-400">
+                    Subscribe to our newsletter for exclusive art drops, artist
+                    interviews, and community events
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <form className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      className="flex-1 min-w-0 px-4 py-2 bg-black border border-pink-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 text-white"
+                      required
+                    />
+                    <Button className="bg-pink-600 hover:bg-pink-700 text-white">
+                      Subscribe
+                    </Button>
+                  </form>
+                  <p className="text-xs text-gray-500">
+                    We respect your privacy. Unsubscribe at any time.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    </main>
   );
 }
