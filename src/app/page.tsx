@@ -79,21 +79,21 @@ export default function Home() {
             <ArtworkCard
               title="Neon Dreams"
               artist="Pixel Queen"
-              imageSrc="/vercel.svg?height=400&width=400"
+              imageSrc="/placeholder.svg?height=400&width=400"
               likes={342}
               href="/artwork/neon-dreams"
             />
             <ArtworkCard
               title="Digital Dystopia"
               artist="CyberArtist"
-              imageSrc="/vercel.svg?height=400&width=400"
+              imageSrc="/placeholder.svg?height=400&width=400"
               likes={289}
               href="/artwork/digital-dystopia"
             />
             <ArtworkCard
               title="Ethereal Fragments"
               artist="VirtualVisions"
-              imageSrc="/vercel.svg?height=400&width=400"
+              imageSrc="/placeholder.svg?height=400&width=400"
               likes={421}
               href="/artwork/ethereal-fragments"
             />
@@ -111,11 +111,11 @@ export default function Home() {
           <ArtistSpotlight
             name="Maya Digitalis"
             bio="Creating at the intersection of traditional art and digital innovation. Maya's work explores themes of identity in the digital age."
-            avatarSrc="/vercel.svg?height=200&width=200"
+            avatarSrc="/placeholder.svg?height=200&width=200"
             artworks={[
-              "/vercel.svg?height=300&width=300",
-              "/vercel.svg?height=300&width=300",
-              "/vercel.svg?height=300&width=300",
+              "/placeholder.svg?height=300&width=300",
+              "/placeholder.svg?height=300&width=300",
+              "/placeholder.svg?height=300&width=300",
             ]}
           />
         </div>
@@ -129,8 +129,8 @@ export default function Home() {
               Featured <span className="text-pink-500">Collection</span>
             </h2>
             <p className="text-gray-400 md:text-xl max-w-[800px] mx-auto">
-              "Cyberpunk Visions" - A curated collection exploring neon-lit
-              dystopian futures and digital consciousness
+              &quot;Cyberpunk Visions&quot; - A curated collection exploring
+              neon-lit dystopian futures and digital consciousness
             </p>
           </div>
 

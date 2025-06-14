@@ -14,7 +14,7 @@ const artworks = [
     artist: "CyberVisions",
     description:
       "A futuristic cityscape bathed in neon lights and digital rain",
-    image: "/vercel.svg?height=600&width=800",
+    image: "/placeholder.svg?height=600&width=800",
   },
   {
     id: 2,
@@ -22,21 +22,21 @@ const artworks = [
     artist: "PixelMind",
     description:
       "Exploring the boundaries between human and artificial intelligence",
-    image: "/vercel.svg?height=600&width=800",
+    image: "/placeholder.svg?height=600&width=800",
   },
   {
     id: 3,
     title: "Synthetic Emotions",
     artist: "NeuralArtist",
     description: "The paradox of programmed feelings in a world of binary code",
-    image: "/vercel.svg?height=600&width=800",
+    image: "/placeholder.svg?height=600&width=800",
   },
   {
     id: 4,
     title: "Electric Dreams",
     artist: "VirtualVisions",
     description: "When androids dream of electric sheep in the neon rain",
-    image: "/vercel.svg?height=600&width=800",
+    image: "/placeholder.svg?height=600&width=800",
   },
 ];
 
@@ -89,7 +89,7 @@ export function FeaturedCollection() {
           className="relative aspect-[16/9] md:aspect-[21/9]"
         >
           <Image
-            src={currentArtwork.image || "/vercel.svg"}
+            src={currentArtwork.image || "/placeholder.svg"}
             alt={currentArtwork.title}
             fill
             className="object-cover"
